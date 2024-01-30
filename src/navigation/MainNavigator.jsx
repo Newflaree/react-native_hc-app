@@ -1,5 +1,9 @@
 // React Native
 import { createStackNavigator } from '@react-navigation/stack';
+// Navigators
+import {
+  InitSettingNavigator
+} from '../navigation';
 // Screens
 import {
   InitScreen,
@@ -16,7 +20,6 @@ export const MainNavigator = () => {
       screenOptions={{
         headerShown: false,
         cardStyle: {
-          backgroundColor: 'white'
         }
       }}
     >
@@ -24,13 +27,20 @@ export const MainNavigator = () => {
         name='InitScreen'
         component={ InitScreen }
       />
+
       <Stack.Screen
         name='LoginScreen'
         component={ LoginScreen }
       />
+
       <Stack.Screen
         name='RegisterScreen'
         component={ RegisterScreen }
+      />
+
+      <Stack.Screen
+        name='InitSettingNavigator'
+        component={ InitSettingNavigator }
       />
     </Stack.Navigator>
   );

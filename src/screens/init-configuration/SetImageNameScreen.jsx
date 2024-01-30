@@ -12,7 +12,7 @@ import {
 import { colors } from '../../theme';
 
 
-export const SetImageNameScreen = () => {
+export const SetImageNameScreen = ({ navigation }) => {
   const [ firstName, setFirstName ] = useState( '' );
 
   return (
@@ -38,6 +38,7 @@ export const SetImageNameScreen = () => {
 
       <TouchableOpacity
         style={[ styles.button, { backgroundColor: colors.primary } ]}
+        onPress={ () => navigation.navigate( 'SetTagsScreen' ) }
       >
         <Text style={ styles.buttonText }>
           Siguiente

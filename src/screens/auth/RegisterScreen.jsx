@@ -6,11 +6,12 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+// Navigators
 // Theme
 import { colors } from '../../theme';
 
 
-export const RegisterScreen = () => {
+export const RegisterScreen = ({ navigation }) => {
   return (
     <View style={ styles.container }>
       <Text style={ styles.title }>
@@ -50,7 +51,7 @@ export const RegisterScreen = () => {
 
       <TouchableOpacity
         style={ styles.button }
-        onPress={ () => console.log( 'Logged' ) }
+        onPress={ () => navigation.navigate( 'InitSettingNavigator' ) }
       >
         <Text style={ styles.buttonText }>
           Crear Cuenta

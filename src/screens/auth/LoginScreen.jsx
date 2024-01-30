@@ -10,7 +10,7 @@ import {
 import { colors } from '../../theme';
 
 
-export const LoginScreen = () => {
+export const LoginScreen = ({ navigation }) => {
   return (
     <View style={ styles.container }>
       <Text style={ styles.title }>
@@ -35,7 +35,7 @@ export const LoginScreen = () => {
 
       <TouchableOpacity
         style={ styles.button }
-        onPress={ () => console.log( 'Logged' ) }
+        onPress={ () => navigation.navigate( 'InitSettingNavigator' ) }
       >
         <Text style={ styles.buttonText }>
           Iniciar Sesión

@@ -11,7 +11,7 @@ import { tagsData } from '../../database';
 // Theme
 import { colors } from '../../theme';
 
-export const SetTagsScreen = () => {
+export const SetTagsScreen = ({ navigation }) => {
   const [ selectedTags, setSelectedTags ] = useState( [] );
 
   const toggleTag = ( tag ) => {
@@ -65,6 +65,7 @@ export const SetTagsScreen = () => {
 
       <TouchableOpacity
         style={[ styles.button, { backgroundColor: colors.primary }]}
+        onPress={ () => navigation.navigate( 'SetLocationScreen' ) }
       >
         <Text style={ styles.buttonText }>Siguiente</Text>
       </TouchableOpacity>
