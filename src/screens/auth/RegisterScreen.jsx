@@ -1,3 +1,4 @@
+// React Native
 import {
   StyleSheet,
   Text,
@@ -5,6 +6,8 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+// Theme
+import { colors } from '../../theme';
 
 
 export const RegisterScreen = () => {
@@ -77,7 +80,7 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     width: '100%',
-    borderBottomColor: '#1D3B86',
+    borderBottomColor: colors.primary,
     borderBottomWidth: 1,
     paddingHorizontal: 10,
     marginBottom: 20,
@@ -85,7 +88,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '100%',
-    backgroundColor: '#1D3B86',
+    backgroundColor: colors.primary,
     borderRadius: 25,
     padding: 15,
     marginTop: 10

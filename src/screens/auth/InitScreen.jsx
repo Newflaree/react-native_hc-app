@@ -1,3 +1,4 @@
+// React Native
 import {
   Image,
   Text,
@@ -5,6 +6,8 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+// Theme
+import { colors } from '../../theme';
 
 export const InitScreen = () => {
   return (
@@ -20,7 +23,7 @@ export const InitScreen = () => {
       </View>
 
       <TouchableOpacity 
-        style={[ styles.button, { backgroundColor: '#1D3B86' } ]}
+        style={[ styles.button, { backgroundColor: colors.primary } ]}
         disabled
       >
         <Text style={ styles.buttonText }>
@@ -29,7 +32,7 @@ export const InitScreen = () => {
       </TouchableOpacity>
 
       <TouchableOpacity 
-        style={[ styles.button, { backgroundColor: '#1D3B86' } ]}
+        style={[ styles.button, { backgroundColor: colors.primary } ]}
         disabled
       >
         <Text style={ styles.buttonText }>
@@ -82,7 +85,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '100%',
-    backgroundColor: '#1D3B86',
+    backgroundColor: colors.primary,
     borderRadius: 25,
     padding: 15,
     marginTop: 10

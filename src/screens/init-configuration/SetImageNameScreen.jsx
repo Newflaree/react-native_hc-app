@@ -8,11 +8,12 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+// Theme
+import { colors } from '../../theme';
 
 
 export const SetImageNameScreen = () => {
   const [ firstName, setFirstName ] = useState( '' );
-  console.log( firstName );
 
   return (
     <View style={ styles.container }>
@@ -24,6 +25,10 @@ export const SetImageNameScreen = () => {
         <View style={ styles.profileImage } />
       </View>
 
+      <Text style={ styles.title }>
+        ¿Cuál es tu nombre?
+      </Text>
+
       <TextInput
         style={ styles.input }
         placeholder='Nombre'
@@ -32,7 +37,7 @@ export const SetImageNameScreen = () => {
       />
 
       <TouchableOpacity
-        style={[ styles.button, { backgroundColor: '#1D3B86' } ]}
+        style={[ styles.button, { backgroundColor: colors.primary } ]}
       >
         <Text style={ styles.buttonText }>
           Siguiente
@@ -55,24 +60,24 @@ const styles = StyleSheet.create({
     marginBottom: 40
   },
   profileImageContainer: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 120,
+    height: 120,
+    borderRadius: 60,
     backgroundColor: '#EEE',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20
   },
   profileImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 100,
+    height: 100,
+    borderRadius: 50,
     backgroundColor: '#DDD'
   },
   input: {
     height: 40,
     width: '100%',
-    borderBottomColor: '#1D3B86',
+    borderBottomColor: colors.primary,
     borderBottomWidth: 1,
     paddingHorizontal: 10,
     marginBottom: 20,
@@ -80,13 +85,14 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '100%',
-    backgroundColor: '#1D3B86',
+    backgroundColor: colors.primary,
     borderRadius: 20,
     padding: 10,
     marginTop: 40
   },
   buttonText:{
     color: 'white',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 15
   }
 });

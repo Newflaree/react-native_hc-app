@@ -1,10 +1,10 @@
 import { Text, View } from 'react-native';
 import { InitScreen, LoginScreen, RegisterScreen } from './src/screens/auth';
-import { SetImageNameScreen } from './src/screens/init-configuration';
+import { SetLocationScreen, SetImageNameScreen, SetTagsScreen } from './src/screens/init-configuration';
 
 const App = () => {
   return (
-    <SetImageNameScreen />
+    <SetLocationScreen />
   );
 }
 
