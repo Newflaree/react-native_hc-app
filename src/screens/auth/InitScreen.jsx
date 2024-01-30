@@ -9,7 +9,7 @@ import {
 // Theme
 import { colors } from '../../theme';
 
-export const InitScreen = () => {
+export const InitScreen = ({ navigation }) => {
   return (
     <View style={ styles.container }>
       <Image
@@ -33,7 +33,7 @@ export const InitScreen = () => {
 
       <TouchableOpacity 
         style={[ styles.button, { backgroundColor: colors.primary } ]}
-        disabled
+        onPress={ () => navigation.navigate( 'LoginScreen' ) }
       >
         <Text style={ styles.buttonText }>
           Continuar con otro método
@@ -48,7 +48,7 @@ export const InitScreen = () => {
 
       <TouchableOpacity 
         style={[ styles.button, { backgroundColor: '#1D3B86' } ]}
-        disabled
+        onPress={ () => navigation.navigate( 'RegisterScreen' ) }
       >
         <Text style={ styles.buttonText }>
           Crear Cuenta

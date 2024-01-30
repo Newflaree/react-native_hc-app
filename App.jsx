@@ -1,10 +1,12 @@
-import { Text, View } from 'react-native';
-import { InitScreen, LoginScreen, RegisterScreen } from './src/screens/auth';
-import { SetLocationScreen, SetImageNameScreen, SetTagsScreen } from './src/screens/init-configuration';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { MainNavigator } from './src/navigation';
 
 const App = () => {
   return (
-    <SetLocationScreen />
+    <NavigationContainer>
+      <MainNavigator />
+    </NavigationContainer>
   );
 }
 
