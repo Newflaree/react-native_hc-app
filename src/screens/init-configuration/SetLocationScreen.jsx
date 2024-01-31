@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 40,
     marginVertical: 40
   },
   locationIcon: {

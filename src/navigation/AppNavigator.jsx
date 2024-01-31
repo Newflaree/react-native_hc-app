@@ -1,5 +1,6 @@
 // React Navigation
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 // React Native Icons
 import Icon from 'react-native-vector-icons/MaterialIcons';
 // Screens
@@ -17,9 +18,14 @@ import { colors } from '../theme';
 const Tab = createBottomTabNavigator();
 
 export const AppNavigator = () => {
+  const { top } = useSafeAreaInsets();
+
   return (
     <Tab.Navigator
       initialRouteName='MainScreen'
+      screenOptions={{
+        headerShown: false,
+      }}
     >
       <Tab.Screen
         name='FavoritesScreen'
@@ -30,6 +36,7 @@ export const AppNavigator = () => {
             name='star'
             size={ 30 }
             color={ colors.primary }
+            style={{ marginTop: 8 }}
           />
         }}
       />
@@ -43,6 +50,7 @@ export const AppNavigator = () => {
             name='chat'
             size={ 30 }
             color={ colors.primary }
+            style={{ marginTop: 8 }}
           />
         }}
       />
@@ -56,6 +64,7 @@ export const AppNavigator = () => {
             name='home'
             size={ 30 }
             color={ colors.primary }
+            style={{ marginTop: 8 }}
           />
         }}
       />
@@ -69,6 +78,7 @@ export const AppNavigator = () => {
             name='event'
             size={ 30 }
             color={ colors.primary }
+            style={{ marginTop: 8 }}
           />
         }}
       />
@@ -82,6 +92,7 @@ export const AppNavigator = () => {
             name='person'
             size={ 30 }
             color={ colors.primary }
+            style={{ marginTop: 8 }}
           />
         }}
       />
