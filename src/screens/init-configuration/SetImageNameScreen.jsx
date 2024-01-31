@@ -87,13 +87,13 @@ const styles = StyleSheet.create({
   button: {
     width: '100%',
     backgroundColor: colors.primary,
-    borderRadius: 20,
-    padding: 10,
-    marginTop: 40
+    borderRadius: 25,
+    padding: 15,
+    marginTop: 10
   },
-  buttonText:{
+  buttonText: {
     color: 'white',
     textAlign: 'center',
     fontSize: 15
-  }
+  },
 });

@@ -1,9 +1,12 @@
+// React Native
 import {
   StyleSheet,
   Text,
   TouchableOpacity,
   View
 } from 'react-native';
+// React Native Icons
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { colors } from '../../theme';
 
 export const SetLocationScreen = ({ navigation }) => {
@@ -27,7 +30,11 @@ export const SetLocationScreen = ({ navigation }) => {
       </Text>
 
       <View style={ styles.locationIconContainer }>
-        <Text style={{ color: 'white' }}>ICON</Text>
+        <Icon
+          name='location-on'
+          size={ 60 }
+          color='#FFF'
+        />
       </View>
 
       <TouchableOpacity
