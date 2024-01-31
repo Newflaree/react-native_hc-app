@@ -2,17 +2,13 @@
 import {
   FlatList,
   StyleSheet,
-  Text,
-  TouchableOpacity,
   View
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-// React Native Icons
-import Icon from 'react-native-vector-icons/MaterialIcons';
 // Colors
 import { colors } from '../../theme';
 // Components
-import { NarratorCard } from '../../components/app';
+import { Header, NarratorCard } from '../../components/app';
 // Database
 import { usersData } from '../../database';
 
@@ -22,31 +18,7 @@ export const MainScreen = () => {
 
   return (
     <View style={[ styles.container, { marginTop: top } ]}>
-      <View style={ styles.header }>
-        <TouchableOpacity
-          onPress={ () => console.log( 'Open Drawer' ) }
-        >
-          <Icon
-            name='menu'
-            size={ 30 }
-            color={ colors.primary }
-          />
-        </TouchableOpacity>
-
-        <Text style={ styles.headerTitle }>
-          Inicio
-        </Text>
-
-        <TouchableOpacity
-          onPress={ () => console.log( 'Open Options' ) }
-        >
-          <Icon
-            name='notifications'
-            size={ 30 }
-            color={ colors.primary }
-          />
-        </TouchableOpacity>
-      </View>
+      <Header screenName='Inicio' />
 
       <FlatList
         data={ usersData }

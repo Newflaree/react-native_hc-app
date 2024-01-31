@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     margin: 20,
-    borderRadius: 12,
+    borderRadius: 20,
     overflow: 'hidden',
     position: 'relative',
     width: '48%',
