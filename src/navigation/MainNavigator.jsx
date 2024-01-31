@@ -2,6 +2,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 // Navigators
 import {
+  AppNavigator,
   InitSettingNavigator
 } from '../navigation';
 // Screens
@@ -41,6 +42,11 @@ export const MainNavigator = () => {
       <Stack.Screen
         name='InitSettingNavigator'
         component={ InitSettingNavigator }
+      />
+
+      <Stack.Screen
+        name='AppNavigator'
+        component={ AppNavigator }
       />
     </Stack.Navigator>
   );

@@ -6,9 +6,10 @@ import {
 } from 'react-native';
 import { colors } from '../../theme';
 
-export const SetLocationScreen = () => {
+export const SetLocationScreen = ({ navigation }) => {
   const handleAllowLocation = () => {
     // TODO: Logic to allow my location
+    navigation.navigate( 'AppNavigator' );
   }
 
   const handleLearMore = () => {
@@ -29,7 +30,10 @@ export const SetLocationScreen = () => {
         <Text style={{ color: 'white' }}>ICON</Text>
       </View>
 
-      <TouchableOpacity style={ styles.button }>
+      <TouchableOpacity
+        style={ styles.button }
+        onPress={ handleAllowLocation }
+      >
         <Text style={ styles.buttonText }>
           Permitir
         </Text>
