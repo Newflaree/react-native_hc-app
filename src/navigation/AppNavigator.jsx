@@ -3,6 +3,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 // React Native Icons
 import Icon from 'react-native-vector-icons/MaterialIcons';
+// Natigators
+import {
+  NarratorProfileStack,
+  MessagesStack
+} from '../navigation/app';
 // Screens
 import {
   CalendarScreen,
@@ -22,9 +27,13 @@ export const AppNavigator = () => {
 
   return (
     <Tab.Navigator
-      initialRouteName='MainScreen'
+      initialRouteName='NarratorProfileStack'
       screenOptions={{
         headerShown: false,
+        tabBarStyle:{
+          backgroundColor: '',
+          elevation: 0,
+        }
       }}
     >
       <Tab.Screen
@@ -42,8 +51,8 @@ export const AppNavigator = () => {
       />
 
       <Tab.Screen
-        name='ChatsScreen'
-        component={ ChatsScreen }
+        name='MessagesStack'
+        component={ MessagesStack }
         options={{
           title: '',
           tabBarIcon: () => <Icon
@@ -56,8 +65,8 @@ export const AppNavigator = () => {
       />
 
       <Tab.Screen
-        name='MainScreen'
-        component={ MainScreen }
+        name='NarratorProfileStack'
+        component={ NarratorProfileStack }
         options={{
           title: '',
           tabBarIcon: () => <Icon

@@ -10,9 +10,12 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-export const NarratorCard = ({ item = {} }) => {
+export const NarratorCard = ({ item = {}, navigation }) => {
   return (
-    <TouchableOpacity style={ styles.card }>
+    <TouchableOpacity
+      style={ styles.card }
+      onPress={ () => navigation.navigate( 'NarratorProfileScreen' ) }
+    >
       <Image
         source={{ uri: 'https://res.cloudinary.com/newflare/image/upload/v1705381326/demos/hc/hsjnbgecbaaijmftf0vi.png' }}
         style={ styles.cardBackground }
