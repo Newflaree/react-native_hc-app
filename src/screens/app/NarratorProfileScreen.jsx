@@ -1,30 +1,26 @@
 // React Native
 import {
-  FlatList,
   StyleSheet,
-  View
+  View,
+  Text
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 // Colors
 import { colors } from '../../theme';
 // Components
-import { Header, NarratorCard } from '../../components/app';
+import { BackHeader } from '../../components/app';
 // Database
 import { usersData } from '../../database';
 
 
-export const MainScreen = ({ navigation }) => {
+export const NarratorProfileScreen = ({ navigation }) => {
   const { top } = useSafeAreaInsets();
 
   return (
     <View style={[ styles.container, { marginTop: top } ]}>
-      <Header screenName='Inicio' />
+      <BackHeader screenName='Perfil del Narrador' navigation={ navigation } />
 
-      <FlatList
-        data={ usersData }
-        renderItem={ ({ item }) => <NarratorCard item={ item } navigation={ navigation } /> }
-        numColumns={ 2 }
-      />
+      <Text>NarratorProfileScreen</Text>
     </View>
   );
 }
