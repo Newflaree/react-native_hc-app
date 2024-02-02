@@ -1,6 +1,7 @@
 // React Native
 import {
   StyleSheet,
+  Text,
   View
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -13,7 +14,7 @@ export const CalendarScreen = () => {
 
   return (
     <View style={[ styles.container, { marginTop: top } ]}>
-      <Header screenName='Calendario' />
+      <Header screenName='Horas Reservadas' />
     </View>
   );
 }

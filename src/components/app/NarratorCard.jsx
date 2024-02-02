@@ -10,11 +10,12 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-export const NarratorCard = ({ item = {}, navigation }) => {
+export const NarratorCard = ({ item = {}, navigation, openModal }) => {
+
   return (
     <TouchableOpacity
       style={ styles.card }
-      onPress={ () => navigation.navigate( 'NarratorProfileScreen' ) }
+      onPress={ openModal }
     >
       <Image
         source={{ uri: 'https://res.cloudinary.com/newflare/image/upload/v1705381326/demos/hc/hsjnbgecbaaijmftf0vi.png' }}
@@ -25,7 +26,6 @@ export const NarratorCard = ({ item = {}, navigation }) => {
         ( item.isFavorite ) && <Icon
           name='star'
           size={ 30 }
-          color=''
           style={ styles.favoriteIcon }
         />
       }

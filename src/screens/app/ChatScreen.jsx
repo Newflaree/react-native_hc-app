@@ -1,10 +1,10 @@
 // React
 import {
-  useRef,
   useState
 } from 'react';
 // React Native
 import {
+  Image,
   FlatList,
   StyleSheet,
   Text,
@@ -12,6 +12,7 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 // Colors
 import { colors } from '../../theme';
@@ -19,22 +20,47 @@ import { colors } from '../../theme';
 import { ChatHeader } from '../../components/app/headers';
 
 
+/*
+  * */
 const messagesData = [
-  { id: 1, sender: 'Usuario 1', text: 'Hola. ¿cómo estás?' },
-  { id: 2, sender: 'Usuario 2', text: 'Estoy bien, gracias. ¿Y tú?' }
+  { id: 1, sender: 'Usuario 1', text: 'Hola buen día ¿cómo estás?' },
+  { id: 2, sender: 'Usuario 2', text: 'Todo bien, un gusto que conectemos' },
+  { id: 3, sender: 'Usuario 1', text: 'Hola buen día ¿cómo estás?' },
+  { id: 4, sender: 'Usuario 2', text: 'Todo bien, un gusto que conectemos' },
+  { id: 5, sender: 'Usuario 1', text: 'Hola buen día ¿cómo estás?' },
+  { id: 6, sender: 'Usuario 2', text: 'Todo bien, un gusto que conectemos' },
+  { id: 7, sender: 'Usuario 1', text: 'Hola buen día ¿cómo estás?' }
 ];
 
 const renderItem = ({ item }) => (
+
   <View
     style={
       item.sender === 'Usuario 1'
-        ? styles.senderMessage
-        : styles.receiverMessage 
+        ? styles.senderContainer
+        : styles.receiverContainer
     }
   >
-    <Text style={ styles.messageText }>
-      { item.text }
-    </Text>
+  {
+
+      item.sender === 'Usuario 2' &&
+            <Image
+              source={{ uri: 'https://res.cloudinary.com/newflare/image/upload/v1705381326/demos/hc/hsjnbgecbaaijmftf0vi.png' }}
+              style={ styles.chatAvatar }
+            />
+
+  }
+    <View
+      style={
+        item.sender === 'Usuario 1'
+          ? styles.senderMessage
+          : styles.receiverMessage 
+      }
+    >
+      <Text style={ styles.messageText }>
+              { item.text }
+      </Text>
+    </View>
   </View>
 );
 
@@ -42,7 +68,6 @@ const renderItem = ({ item }) => (
 export const ChatScreen = ({ navigation }) => {
   const [ inputMessage, setInputMessage ] = useState( '' );
   const [ messages, setMessages ] = useState( messagesData );
-  const flatListRef = useRef( null );
 
   const { top } = useSafeAreaInsets();
 
@@ -56,8 +81,6 @@ export const ChatScreen = ({ navigation }) => {
 
       setMessages([ ...messages, newMessage ])
       setInputMessage( '' );
-
-      flatListRef.current.scrollToEnd({ animated: true });
     }
   }
 
@@ -70,15 +93,20 @@ export const ChatScreen = ({ navigation }) => {
         icon='event'
       />
 
-      <FlatList
-        ref={ flatListRef }
-        data={ messages }
-        keyExtractor={ ( item ) => item.id.toString() }
-        renderItem={ renderItem }
-        style={ styles.messagesList }
-        inverted
-        onContentSizeChange={ () => flatListRef.current.scrollToEnd({ animated: true }) }
-      />
+      {
+        ( messagesData.length > 0 ) 
+          ? <FlatList
+              data={ messages }
+              keyExtractor={ ( item ) => item.id.toString() }
+              renderItem={ renderItem }
+              style={ styles.messagesList }
+              inverted
+            />
+          : <View style={ styles.emptyChat }>
+              <Text style={ styles.emptyChatText }>No hay mensajes</Text>
+            </View>
+      }
+
 
       <View style={ styles.inputContainer }>
         <TextInput
@@ -105,6 +133,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
+  senderContainer: {
+  },
+  receiverContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   messagesList: {
     flex: 1,
     paddingHorizontal: 16,
@@ -113,8 +147,10 @@ const styles = StyleSheet.create({
   senderMessage: {
     alignSelf: 'flex-end',
     backgroundColor: colors.primary,
-    borderRadius: 20,
-    padding: 8,
+    padding: 10,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomLeftRadius: 20,
     marginBottom: 8,
     maxWidth: '70%',
     paddingHorizontal: 20
@@ -122,8 +158,10 @@ const styles = StyleSheet.create({
   receiverMessage: {
     alignSelf: 'flex-start',
     backgroundColor: colors.secondary,
-    borderRadius: 20,
     padding: 8,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomRightRadius: 20,
     marginBottom: 8,
     maxWidth: '70%',
     paddingHorizontal: 20
@@ -131,6 +169,14 @@ const styles = StyleSheet.create({
   messageText: {
     color: '#FFF',
     fontSize: 16
+  },
+  emptyChat: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  emptyChatText: {
+    fontSize: 18
   },
   inputContainer: {
     flexDirection: 'row',
@@ -155,5 +201,12 @@ const styles = StyleSheet.create({
   sendButtonText: {
     color: '#FFF',
     fontWeight: 'bold'
+  },
+  chatAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    marginRight: 10
+
   }
 });

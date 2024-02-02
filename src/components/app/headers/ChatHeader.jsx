@@ -1,5 +1,6 @@
 // React Native
 import {
+  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -29,17 +30,25 @@ export const ChatHeader = ({
         />
       </TouchableOpacity>
 
-      <View style={ styles.textContainer }>
-        <Text style={ styles.headerTitle }>
-          { receiverName }
-        </Text>
-        <Text style={ styles.subTitle }>
-          { receiverTag }
-        </Text>
+      <View style={ styles.headerContent }>
+        <Image
+          style={ styles.topAvatar }
+          source={{ uri: 'https://res.cloudinary.com/newflare/image/upload/v1705381326/demos/hc/hsjnbgecbaaijmftf0vi.png' }}
+        />
+
+        <View style={ styles.textContainer }>
+
+          <Text style={ styles.headerTitle }>
+            { receiverName }
+          </Text>
+          <Text style={ styles.subTitle }>
+            { receiverTag }
+          </Text>
+        </View>
       </View>
 
       <TouchableOpacity
-        onPress={ () => console.log( 'Open Options' ) }
+        onPress={ () => console.log( 'Open Calender' ) }
       >
         <Icon
           name={ icon }
@@ -62,6 +71,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#DDD',
   },
+  headerContent: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
   textContainer: {
     flexDirection: 'column',
   },
@@ -76,4 +89,11 @@ const styles = StyleSheet.create({
     color: colors.primary,
     textAlign: 'center'
   },
+  topAvatar: {
+    width: 50,
+    height: 50,
+    marginRight: 20,
+    borderRadius: 50
+
+  }
 });
