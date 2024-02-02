@@ -4,10 +4,12 @@ import {
   Image,
   StyleSheet,
   Text,
+  TextInput,
   TouchableOpacity,
   View
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 // Colors
 import { colors } from '../../theme';
 // Components
@@ -69,11 +71,32 @@ export const ChatsScreen = ({ navigation }) => {
     <View style={[ styles.container, { marginTop: top } ]}>
       <Header screenName='Mensajes' />
 
-      <FlatList
-        data={ chatsData }
-        keyExtractor={ ( item ) => item.id.toString() }
-        renderItem={ renderItem }
-      />
+      <View style={ styles.inputContainer }>
+        <TextInput
+          style={ styles.textInput }
+          placeholder='Buscar Chat'
+        />
+
+        <Icon
+          style={ styles.inputIcon }
+          name='search'
+          size={ 20 }
+          color='#ccc'
+        />
+      </View>
+
+      {
+        chatsData.length > 1
+          ? <FlatList
+              data={ chatsData }
+              keyExtractor={ ( item ) => item.id.toString() }
+              renderItem={ renderItem }
+            />
+          : <View style={ styles.emptyChat }>
+              <Text style={ styles.emptyChatTitle }>Comienza a conocer</Text>
+              <Text style={ styles.emptyChatText }>Aquí encontrarás los locutores que te interese contactar</Text>
+            </View>
+      }
     </View>
   );
 }
@@ -90,7 +113,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     padding: 20,
     elevation: 2,
-    marginHorizontal: 10
+    marginHorizontal: 16
+  },
+  emptyChat: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  emptyChatTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    paddingBottom: 15
+  },
+  emptyChatText: {
+    fontSize: 16,
+    textAlign: 'center',
+    paddingHorizontal: 32
   },
   avatar: {
     width: 50,
@@ -122,5 +160,25 @@ const styles = StyleSheet.create({
   unreadText: {
     color: '#FFF',
     fontWeight: 'bold'
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 20,
+    justifyContent: 'space-between',
+  },
+  textInput: {
+    flex: 1,
+    backgroundColor: '#FFF',
+    borderRadius: 20,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    marginRight: 8,
+    width: '100%',
+  },
+  inputIcon: {
+    position: 'absolute',
+    right: 35
   }
 });
