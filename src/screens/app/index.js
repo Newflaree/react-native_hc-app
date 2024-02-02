@@ -1,3 +1,4 @@
+export * from './BookingScreen';
 export * from './CalendarScreen';
 export * from './ChatsScreen';
 export * from './ChatScreen';

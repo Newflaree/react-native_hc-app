@@ -1,14 +1,13 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import {
-  MainScreen,
-  ChatScreen,
-  NarratorProfileScreen
+  BookingScreen,
+  CalendarScreen
 } from '../../screens/app';
-
 
 const Stack = createStackNavigator();
 
-export const NarratorProfileStack = () => {
+
+export const CalendarStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -16,13 +15,13 @@ export const NarratorProfileStack = () => {
       }}
     >
       <Stack.Screen
-        name='MainScreen'
-        component={ MainScreen }
+        name='CalendarScreen'
+        component={ CalendarScreen }
       />
 
       <Stack.Screen
-        name='ChatScreen'
-        component={ ChatScreen }
+        name='BookingScreen'
+        component={ BookingScreen }
       />
     </Stack.Navigator>
   );

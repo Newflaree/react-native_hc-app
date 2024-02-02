@@ -1,3 +1,5 @@
+// React
+import { useState } from 'react';
 // React Native
 import {
   StyleSheet,
@@ -7,16 +9,22 @@ import {
 } from 'react-native';
 // React Native Icons
 import Icon from 'react-native-vector-icons/MaterialIcons';
+// Components
+import { InitConfigModal } from '../../components/init-config';
+// Colors
 import { colors } from '../../theme';
 
 export const SetLocationScreen = ({ navigation }) => {
+  const [ bottomSheetVisible, setBottomSheetVisible ] = useState( false );
+
   const handleAllowLocation = () => {
     // TODO: Logic to allow my location
     navigation.navigate( 'AppNavigator' );
   }
 
-  const handleLearMore = () => {
+  const handleReadMore = () => {
     // TODO: Logic to open Learn More modal
+    setBottomSheetVisible( !bottomSheetVisible );
   }
 
   return (
@@ -46,9 +54,16 @@ export const SetLocationScreen = ({ navigation }) => {
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={ handleReadMore }
+      >
         <Text style={ styles.learnMoreText }>¿Cómo se usa mi ubicación?</Text>
       </TouchableOpacity>
+
+      <InitConfigModal
+        isVisible={ bottomSheetVisible }
+        onClose={ handleReadMore }
+      />
     </View>
   );
 }

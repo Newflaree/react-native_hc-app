@@ -13,7 +13,7 @@ import { BackHeader } from '../../components/app';
 import { usersData } from '../../database';
 
 
-export const NarratorProfileScreen = ({ navigation }) => {
+export const NarratorProfileScreen = ({ navigation, route }) => {
   const { top } = useSafeAreaInsets();
 
   return (
