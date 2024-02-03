@@ -1,3 +1,5 @@
+// React
+import { useState } from 'react';
 // React Native
 import {
   Image,
@@ -6,10 +8,17 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+import { EulaModal } from '../../components/init-config';
 // Theme
 import { colors } from '../../theme';
 
 export const InitScreen = ({ navigation }) => {
+  const [ bottomSheetVisible, setBottomSheetVisible ] = useState( false );
+
+  const handleReadEula = () => {
+    setBottomSheetVisible( !bottomSheetVisible );
+  }
+
   return (
     <View style={ styles.container }>
       <Image
@@ -56,8 +65,13 @@ export const InitScreen = ({ navigation }) => {
       </TouchableOpacity>
 
       <Text style={ styles.eulaText }>
-        Al continuar, aceptas nuestros Términos. Conoce cómo procesamos tus datos en nuestra Política de rivacidad y Política de Cookies
+        Al continuar, aceptas nuestros <TouchableOpacity onPress={ handleReadEula }><Text style={ styles.eulaModalText }>Términos y Condiciones</Text></TouchableOpacity>. Conoce cómo procesamos tus datos en nuestra Política de rivacidad y Política de Cookies
       </Text>
+
+      <EulaModal
+        isVisible={ bottomSheetVisible }
+        onClose={ handleReadEula }
+      />
     </View>
   );
 }
@@ -117,5 +131,8 @@ const styles = StyleSheet.create({
     marginTop: 50,
     textAlign: 'center',
     color: '#888'
+  },
+  eulaModalText: {
+    color: colors.primary
   }
 });

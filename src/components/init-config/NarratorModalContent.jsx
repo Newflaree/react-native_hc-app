@@ -151,15 +151,15 @@ const styles = StyleSheet.create({
     marginTop: 8
   },
   userName: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 'bold'
   },
   userTag: {
-    fontSize: 14,
+    fontSize: 18,
     fontWeight: 'bold'
   },
   userDistance: {
-    fontSize: 12,
+    fontSize: 14,
     color: '#888'
   },
   ratingContainer: {

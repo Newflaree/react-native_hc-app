@@ -7,4 +7,8 @@ export const usersData = [
   { id: 6, name: 'Test-1', tag: '', distance: '', isFavorite: false },
   { id: 7, name: 'Test-1', tag: '', distance: '', isFavorite: true },
   { id: 8, name: 'Test-1', tag: '', distance: '', isFavorite: false },
+  { id: 9, name: 'Test-1', tag: '', distance: '', isFavorite: false },
+  { id: 10, name: 'Test-1', tag: '', distance: '', isFavorite: false },
+  { id: 11, name: 'Test-1', tag: '', distance: '', isFavorite: false },
+  { id: 12, name: 'Test-1', tag: '', distance: '', isFavorite: true },
 ];
