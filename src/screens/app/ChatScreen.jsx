@@ -20,8 +20,6 @@ import { colors } from '../../theme';
 import { ChatHeader } from '../../components/app/headers';
 
 
-/*
-  * */
 const messagesData = [
   { id: 1, sender: 'Usuario 1', text: 'Hola buen día ¿cómo estás?' },
   { id: 2, sender: 'Usuario 2', text: 'Todo bien, un gusto que conectemos' },
@@ -33,7 +31,6 @@ const messagesData = [
 ];
 
 const renderItem = ({ item }) => (
-
   <View
     style={
       item.sender === 'Usuario 1'
@@ -106,7 +103,6 @@ export const ChatScreen = ({ navigation }) => {
               <Text style={ styles.emptyChatText }>No hay mensajes</Text>
             </View>
       }
-
 
       <View style={ styles.inputContainer }>
         <TextInput

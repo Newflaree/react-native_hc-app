@@ -15,16 +15,24 @@ import {
   Header,
   NarratorCard
 } from '../../components/app';
+// Modals
+import { NarratorProfileModal } from '../../components/init-config';
 // Database
 import { usersData } from '../../database';
 
 export const FavoritesScreen = ({ navigation }) => {
   const { top } = useSafeAreaInsets();
+  const [ bottomSheetVisible, setBottomSheetVisible ] = useState( false );
   const [ favoriteUsers, setFavoriteUsers ] = useState( [] );
 
   const getFavoritesUsers = () => {
     const favoriteUsers = usersData.filter( ( item ) => item.isFavorite === true  );
     setFavoriteUsers( favoriteUsers )
+  }
+
+  const handleOpenModal = () => {
+    // TODO: Logic to open Learn More modal
+    setBottomSheetVisible( !bottomSheetVisible );
   }
 
   useEffect( () => {
@@ -39,8 +47,19 @@ export const FavoritesScreen = ({ navigation }) => {
 
       <FlatList
         data={ favoriteUsers }
-        renderItem={ ({ item }) => <NarratorCard item={ item } navigation={ navigation } /> }
+        renderItem={ ({ item }) => <NarratorCard
+          openModal={ handleOpenModal }
+          item={ item }
+          navigation={ navigation }
+          /> 
+        }
         numColumns={ 2 }
+      />
+
+      <NarratorProfileModal
+        navigation={ navigation }
+        isVisible={ bottomSheetVisible } 
+        onClose={ handleOpenModal }
       />
     </View>
   );

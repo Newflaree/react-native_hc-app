@@ -1,4 +1,5 @@
-export * from './BookingScreen';
+export * from './BookingConfirmScreen';
+export * from './BookingsScreen';
 export * from './CalendarScreen';
 export * from './ChatsScreen';
 export * from './ChatScreen';

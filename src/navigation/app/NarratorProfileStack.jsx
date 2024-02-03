@@ -1,8 +1,11 @@
+// React Navigation
 import { createStackNavigator } from '@react-navigation/stack';
+// Screens
 import {
-  MainScreen,
+  BookingConfirmScreen,
   ChatScreen,
-  NarratorProfileScreen
+  CalendarScreen,
+  MainScreen
 } from '../../screens/app';
 
 
@@ -23,6 +26,16 @@ export const NarratorProfileStack = () => {
       <Stack.Screen
         name='ChatScreen'
         component={ ChatScreen }
+      />
+
+      <Stack.Screen
+        name='CalendarScreen'
+        component={ CalendarScreen }
+      />
+
+      <Stack.Screen
+        name='BookingConfirmScreen'
+        component={ BookingConfirmScreen }
       />
     </Stack.Navigator>
   );

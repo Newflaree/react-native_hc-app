@@ -1,15 +1,18 @@
+// React Navigation
 import { createStackNavigator } from '@react-navigation/stack';
+// Screens
 import {
+  FavoritesScreen,
   BookingConfirmScreen,
-  CalendarScreen,
   ChatScreen,
-  ChatsScreen
+  CalendarScreen,
 } from '../../screens/app';
+
 
 const Stack = createStackNavigator();
 
 
-export const MessagesStack = () => {
+export const FavoritesStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -17,8 +20,13 @@ export const MessagesStack = () => {
       }}
     >
       <Stack.Screen
-        name='ChatsScreen'
-        component={ ChatsScreen }
+        name='FavoritesScreen'
+        component={ FavoritesScreen }
+      />
+
+      <Stack.Screen
+        name='BookingConfirmScreen'
+        component={ BookingConfirmScreen }
       />
 
       <Stack.Screen
@@ -29,11 +37,6 @@ export const MessagesStack = () => {
       <Stack.Screen
         name='CalendarScreen'
         component={ CalendarScreen }
-      />
-
-      <Stack.Screen
-        name='BookingConfirmScreen'
-        component={ BookingConfirmScreen }
       />
     </Stack.Navigator>
   );

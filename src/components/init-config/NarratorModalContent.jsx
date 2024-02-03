@@ -98,7 +98,10 @@ export const NarratorProfileContent = ({ navigation, profileData, close }) => {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={ styles.scheduleButton }>
+        <TouchableOpacity
+          style={ styles.scheduleButton }
+          onPress={ () => handleCloseModal( 'CalendarScreen' ) }
+        >
           <Icon
             name='calendar-today'
             size={ 20 }

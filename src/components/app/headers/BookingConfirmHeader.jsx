@@ -1,27 +1,20 @@
 // React Native
 import {
-  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
   View
 } from 'react-native';
-// React Native Icons
+// React Navite Vector Icons
 import Icon from 'react-native-vector-icons/MaterialIcons';
-// Colors
+// Theme
 import { colors } from '../../../theme';
 
-
-export const ChatHeader = ({
-  receiverName = '',
-  receiverTag = '',
-  navigation,
-  icon
-}) => {
+export const BookingConfirmHeader = ({ navigation }) => {
   return (
     <View style={ styles.header }>
       <TouchableOpacity
-        onPress={ () => navigation.pop() }
+        onPress={ () => navigation.popToTop() }
       >
         <Icon
           name='navigate-before'
@@ -31,30 +24,13 @@ export const ChatHeader = ({
       </TouchableOpacity>
 
       <View style={ styles.headerContent }>
-        <Image
-          style={ styles.topAvatar }
-          source={{ uri: 'https://res.cloudinary.com/newflare/image/upload/v1705381326/demos/hc/hsjnbgecbaaijmftf0vi.png' }}
-        />
-
         <View style={ styles.textContainer }>
-
-          <Text style={ styles.headerTitle }>
-            { receiverName }
-          </Text>
-          <Text style={ styles.subTitle }>
-            { receiverTag }
-          </Text>
         </View>
       </View>
 
       <TouchableOpacity
-        onPress={ () => navigation.navigate( 'CalendarScreen' ) }
+        onPress={ () => console.log( 'Open Calender' ) }
       >
-        <Icon
-          name={ icon }
-          size={ 30 }
-          color={ colors.primary }
-        />
       </TouchableOpacity>
     </View>
   );
@@ -94,6 +70,5 @@ const styles = StyleSheet.create({
     height: 50,
     marginRight: 20,
     borderRadius: 50
-
   }
 });

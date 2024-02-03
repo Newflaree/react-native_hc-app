@@ -5,15 +5,13 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 // Natigators
 import {
+  FavoritesStack,
   NarratorProfileStack,
   MessagesStack
 } from '../navigation/app';
 // Screens
 import {
-  CalendarScreen,
-  ChatsScreen,
-  FavoritesScreen,
-  MainScreen,
+  BookingsScreen,
   ProfileScreen
 } from '../screens/app';
 // Colors
@@ -37,8 +35,8 @@ export const AppNavigator = () => {
       }}
     >
       <Tab.Screen
-        name='FavoritesScreen'
-        component={ FavoritesScreen }
+        name='FavoritesStack'
+        component={ FavoritesStack }
         options={{
           title: '',
           tabBarIcon: () => <Icon
@@ -79,8 +77,8 @@ export const AppNavigator = () => {
       />
 
       <Tab.Screen
-        name='CalendarScreen'
-        component={ CalendarScreen }
+        name='BookingsScreen'
+        component={ BookingsScreen }
         options={{
           title: '',
           tabBarIcon: () => <Icon

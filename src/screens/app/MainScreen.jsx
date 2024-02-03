@@ -9,6 +9,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 // Components
 import { Header, NarratorCard } from '../../components/app';
+// Modals
 import { NarratorProfileModal } from '../../components/init-config';
 // Database
 import { usersData } from '../../database';
@@ -43,7 +44,6 @@ export const MainScreen = ({ navigation }) => {
         isVisible={ bottomSheetVisible } 
         onClose={ handleOpenModal }
       />
-
     </View>
   );
 }
