@@ -9,6 +9,7 @@ import {
   View
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+// React Native Vector Icons
 import Icon from 'react-native-vector-icons/MaterialIcons';
 // Components
 import { Header } from '../../components/app';
@@ -20,7 +21,7 @@ const bookingsData = [
   { id: 5, username: 'Narrator-1', date: '2024-02-22', payButton: true, status: 'yellow' },
   { id: 1, username: 'Narrator-1', date: '2024-02-14', payButton: false, status: 'green' },
   { id: 4, username: 'Narrator-1', date: '2024-03-07', payButton: false, status: 'gray' },
-  { id: 3, username: 'Narrator-1', date: '2024-07-20', payButton: false, status: 'red' },
+  { id: 3, username: 'Narrator-1', date: '2024-07-20', payButton: false, status: 'red' }
 ];
 
 const BookingItem = ({ item, navigation }) => {
@@ -62,7 +63,10 @@ const BookingItem = ({ item, navigation }) => {
         </Text>
         {
           item.payButton && 
-            <TouchableOpacity style={ styles.payButton }>
+            <TouchableOpacity
+              style={ styles.payButton }
+              onPress={ () => console.log( 'Following Pay' ) }
+            >
               <Text style={ styles.payButtonText }>
                 Pagar
               </Text>
@@ -219,9 +223,8 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   statusDot: {
-    height: 20,
-    width: 20,
-    backgroundColor: 'yellow',
+    height: 25,
+    width: 25,
     borderRadius: 50,
     bottom: 20
   }
