@@ -20,8 +20,7 @@ const chatsData = [
   { id: 1, username: 'User 1', lastMessage: 'Hola, ¿cómo estás?', unreadMessages: 3 },
   { id: 2, username: 'User 2', lastMessage: 'Vamos a quedar mañana', unreadMessages: 0 },
   { id: 3, username: 'User 3', lastMessage: 'No tengo disponible la fecha que deseas', unreadMessages: 1 }
-]
-
+];
 
 const ChatItem = ({ item, navigation }) => {
   return (
@@ -93,8 +92,12 @@ export const ChatsScreen = ({ navigation }) => {
               renderItem={ renderItem }
             />
           : <View style={ styles.emptyChat }>
-              <Text style={ styles.emptyChatTitle }>Comienza a conocer</Text>
-              <Text style={ styles.emptyChatText }>Aquí encontrarás los locutores que te interese contactar</Text>
+              <Text style={ styles.emptyChatTitle }>
+                Comienza a conocer
+              </Text>
+              <Text style={ styles.emptyChatText }>
+                Aquí encontrarás los locutores que te interese contactar
+              </Text>
             </View>
       }
     </View>
