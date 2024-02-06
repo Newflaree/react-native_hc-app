@@ -60,9 +60,15 @@ export const ProfileScreen = () => {
 
           {
             bookingsPayiedData.length > 0
-              ? bookingsPayiedData.map( (item) => (
-                  <BookingItem item={ item } />
-                )) 
+              ? <View>
+                {
+                  bookingsPayiedData.map( ( item ) => (
+                    <View key={ item.id }>
+                      <BookingItem item={ item } />
+                    </View>
+                  ))
+                }
+                </View>
               : <View style={ styles.emptyItems }>
                   <Text>
                     No tienes próximas citas
@@ -78,9 +84,15 @@ export const ProfileScreen = () => {
 
           {
             bookingsPendingData.length > 0
-              ? bookingsPendingData.map( (item) => (
-                  <BookingItem item={ item } />
-                )) 
+              ? <View>
+                {
+                  bookingsPendingData.map( ( item ) => (
+                    <View key={ item.id }>
+                      <BookingItem item={ item } />
+                    </View>
+                  ))
+                }
+                </View>
               : <View style={ styles.emptyItems }>
                   <Text>
                     No tienes citas pendientes de pago
@@ -96,9 +108,15 @@ export const ProfileScreen = () => {
 
           {
             bookingsPreviousData.length > 0
-              ? bookingsPreviousData.map( (item) => (
-                  <BookingItem item={ item } />
-                )) 
+              ? <View>
+                {
+                  bookingsPreviousData.map( ( item ) => (
+                    <View key={ item.id }>
+                      <BookingItem item={ item } />
+                    </View>
+                  ))
+                }
+                </View>
               : <View style={ styles.emptyItems }>
                   <Text>
                     No tienes próximas citas anteriores

@@ -65,7 +65,7 @@ export const BookingItem = ({ item, navigation }) => {
           item.status === 'gray' && <Text>Confirmada</Text>
         }
         {
-          item.status === 'lightgray' && <Text>Concretadas</Text>
+          item.status === 'lightgray' && <Text>Concretada</Text>
         }
         {
           item.status === 'red' && <Text>Cancelada</Text>

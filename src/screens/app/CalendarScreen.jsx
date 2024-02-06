@@ -100,18 +100,20 @@ export const CalendarScreen = ({ navigation }) => {
           Elegir un día disponible
         </Text>
 
-        <Calendar
-          onDayPress={ handleDateSelect }
-          markedDates={{
-            [ selectedDate ]: {
-              selected: true,
-              selectedColor: colors.primary,
-            }
-          }}
-          theme={{
-            calendarBackground: 'transparent',
-          }}
-        />
+        <View style={ styles.calendarContainer }>
+          <Calendar
+            onDayPress={ handleDateSelect }
+            markedDates={{
+              [ selectedDate ]: {
+                selected: true,
+                selectedColor: colors.primary,
+              }
+            }}
+            theme={{
+              calendarBackground: 'transparent',
+            }}
+          />
+        </View>
 
         <TouchableOpacity
           style={ styles.saveButton }
@@ -133,6 +135,9 @@ const styles = StyleSheet.create({
   content: {
     padding: 20
   },
+  calendarContainer: {
+    paddingBottom: 40
+  },
   calendarTitle: {
     fontSize: 35,
     fontWeight: 'bold',
@@ -151,6 +156,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFF',
     textAlign: 'center',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   }
 });
