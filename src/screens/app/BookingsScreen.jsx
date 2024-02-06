@@ -1,18 +1,16 @@
 // React Native
 import {
   FlatList,
-  Image,
   StyleSheet,
   Text,
   TextInput,
-  TouchableOpacity,
   View
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 // React Native Vector Icons
 import Icon from 'react-native-vector-icons/MaterialIcons';
 // Components
-import { Header } from '../../components/app';
+import { Header, BookingItem } from '../../components/app';
 // Theme
 import { colors } from '../../theme';
 
@@ -23,72 +21,6 @@ const bookingsData = [
   { id: 4, username: 'Narrator-1', date: '2024-03-07', payButton: false, status: 'gray' },
   { id: 3, username: 'Narrator-1', date: '2024-07-20', payButton: false, status: 'red' }
 ];
-
-const BookingItem = ({ item, navigation }) => {
-  const formatDate = ( dateString ) => {
-    const date = new Date( dateString );
-
-    const months = [
-      'Enero', 'Febrero', 'Marzo', 'Abril',
-      'Mayo', 'Junio', 'Julio', 'Agosto',
-      'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-    ];
-
-    const day = date.getDate();
-    const month = months[ date.getMonth() ];
-    const year = date.getFullYear();
-
-    const formatedDate = `${ day } de ${ month }, ${ year }`;
-
-    return formatedDate;
-  }
-
-
-  return (
-    <View
-      style={ styles.bookingItem }
-    >
-      <Image 
-        style={ styles.avatar }
-        source={{ uri: 'https://res.cloudinary.com/newflare/image/upload/v1705381326/demos/hc/hsjnbgecbaaijmftf0vi.png' }}
-      />
-
-      <View style={ styles.bookingInfo }>
-        <Text style={ styles.username }>
-          { item.username }
-        </Text>
-
-        <Text style={ styles.itemDate }>
-          { formatDate( item.date ) }
-        </Text>
-        {
-          item.payButton && 
-            <TouchableOpacity
-              style={ styles.payButton }
-              onPress={ () => console.log( 'Following Pay' ) }
-            >
-              <Text style={ styles.payButtonText }>
-                Pagar
-              </Text>
-            </TouchableOpacity>
-        }
-
-        {
-          item.status === 'green' && <Text>Pagada</Text>
-        }
-        {
-          item.status === 'gray' && <Text>Confirmada</Text>
-        }
-        {
-          item.status === 'red' && <Text>Cancelada</Text>
-        }
-      </View>
-
-      <View style={[ styles.statusDot, { backgroundColor: item.status } ]}>
-      </View>
-    </View>
-  );
-}
 
 export const BookingsScreen = () => {
   const { top } = useSafeAreaInsets();

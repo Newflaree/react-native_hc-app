@@ -1,19 +1,21 @@
 // React Native
 import {
   FlatList,
-  Image,
   StyleSheet,
   Text,
   TextInput,
-  TouchableOpacity,
   View
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+// React Native Vector Icons
 import Icon from 'react-native-vector-icons/MaterialIcons';
 // Colors
 import { colors } from '../../theme';
 // Components
-import { Header } from '../../components/app';
+import {
+  Header,
+  ChatItem
+} from '../../components/app';
 
 
 const chatsData = [
@@ -21,43 +23,6 @@ const chatsData = [
   { id: 2, username: 'User 2', lastMessage: 'Vamos a quedar mañana', unreadMessages: 0 },
   { id: 3, username: 'User 3', lastMessage: 'No tengo disponible la fecha que deseas', unreadMessages: 1 }
 ];
-
-const ChatItem = ({ item, navigation }) => {
-  return (
-    <TouchableOpacity
-      style={ styles.chatItem }
-      onPress={ () => navigation.navigate( 'ChatScreen' ) }
-    >
-      <Image 
-        style={ styles.avatar }
-        source={{ uri: 'https://res.cloudinary.com/newflare/image/upload/v1705381326/demos/hc/hsjnbgecbaaijmftf0vi.png' }}
-      />
-
-      <View style={ styles.chatInfo }>
-        <Text style={ styles.username }>
-          { item.username }
-        </Text>
-
-        <Text
-          numberOfLines={ 1 }
-          style={ styles.lastMessage }
-        >
-          { item.lastMessage }
-        </Text>
-
-        {
-          item.unreadMessages > 0 && (
-            <View style={ styles.unreadBadge }>
-              <Text style={ styles.unreadText }>
-                { item.unreadMessages }
-              </Text>
-            </View>
-          )
-        }
-      </View>
-    </TouchableOpacity>
-  )
-}
 
 export const ChatsScreen = ({ navigation }) => {
   const { top } = useSafeAreaInsets();
